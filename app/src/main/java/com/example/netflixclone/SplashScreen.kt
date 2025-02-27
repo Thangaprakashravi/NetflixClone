@@ -28,18 +28,11 @@ import kotlinx.coroutines.delay
 @Composable
 fun SplashScreen(navController: NavController) {
     val transition = rememberInfiniteTransition()
-    val offsetX by transition.animateFloat(
-        initialValue = -100f,
-        targetValue = 100f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(1000, easing = LinearEasing),
-            repeatMode = RepeatMode.Reverse
-        )
-    )
+
 
     LaunchedEffect (Unit) {
-        delay(4000)
-        navController.navigate("login")
+        delay(2000)
+        navController.navigate("page")
     }
 
     Box(
@@ -53,7 +46,7 @@ fun SplashScreen(navController: NavController) {
             color = Color.Red,
             fontSize = 40.sp,
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.offset(x = offsetX.dp)
+
         )
     }
 }
